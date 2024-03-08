@@ -3,17 +3,10 @@
   hosts: all
   gather_facts: no
   tasks:
-  - name: Show subscription_status
+  - name: Show lifecycle_environment
     debug:
       msg: >
-        Subscription Status: {{ hostvars[item].subscription_status_label }}
-  - name: Show Errata Counts
-    debug:
-      msg: >
-        Bug fixes: {{ hostvars[item].content_facet_attributes.errata_counts.bugfix }},
-        Security: {{ hostvars[item].content_facet_attributes.errata_counts.security }},
-        Enhancement: {{ hostvars[item].content_facet_attributes.errata_counts.enhancement }},
-        Total: {{ hostvars[item].content_facet_attributes.errata_counts.total }}
+        lifecycle_environment: {{ hostvars[lifecycle_environment] }}
 
 # ---
 # - name: Extract Lifecycle Environment from All Satellite Hosts

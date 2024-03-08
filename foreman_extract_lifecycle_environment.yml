@@ -5,5 +5,5 @@
   tasks:
     - name: Get hostvars for each host
       debug:
-        var: foreman_content_facet_attributes[content_view_environments]
+        var: foreman_content_facet_attributes.content_view_environments
       loop: "{{ groups['all'] }}"

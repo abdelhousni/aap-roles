@@ -6,7 +6,7 @@
   - name: Show lifecycle_environment
     debug:
       msg: >
-        lifecycle_environment: {{ hostvars[lifecycle_environment] }}
+        lifecycle_environment: {{ hostvars }}
 
 # ---
 # - name: Extract Lifecycle Environment from All Satellite Hosts

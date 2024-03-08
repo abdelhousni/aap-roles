@@ -5,6 +5,5 @@
   tasks:
     - name: Get hostvars for each host
       debug:
-        #var: foreman_content_facet_attributes.content_view_environments | map(attribute='lifecycle_environment') | map(attribute='name') 
-        var: foreman_content_facet_attributes.content_view_environments['lifecycle_environment']['name']
+        var: foreman_content_facet_attributes.content_view_environments | map(attribute='lifecycle_environment') | map(attribute='name') 
       loop: "{{ groups['all'] }}"

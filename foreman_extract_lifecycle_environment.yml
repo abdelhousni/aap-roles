@@ -1,7 +1,6 @@
 ---
 - name: Extract Lifecycle Environment from All Satellite Hosts
   hosts: all  # Target all hosts
-  host_filters: 'lifecycle_environment="PRD"'
   gather_facts: no
   tasks:
     - name: Get hostvars for each host

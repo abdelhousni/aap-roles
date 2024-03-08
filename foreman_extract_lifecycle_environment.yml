@@ -5,5 +5,5 @@
   tasks:
     - name: Get hostvars for each host
       debug:
-        var: hostvars[item].lifecycle_environment
+        var: hostvars[item]
       loop: "{{ groups['all'] }}"

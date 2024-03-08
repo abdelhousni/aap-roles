@@ -1,0 +1,9 @@
+---
+- name: Extract Lifecycle Environment from All Satellite Hosts
+  hosts: all  # Target all hosts
+  gather_facts: no
+  tasks:
+    - name: Get hostvars for each host
+      debug:
+        var: hostvars[item].lifecycle_environment
+      loop: "{{ groups['all'] }}"

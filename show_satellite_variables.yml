@@ -1,15 +1,27 @@
 ---
 - name: Show Satellite variables
   hosts: all
+  gather_facts: no
   tasks:
   - name: Show subscription_status
     debug:
       msg: >
-        Subscription Status: {{ foreman.subscription_status_label }}
+        Subscription Status: {{ hostvars[item].subscription_status_label }}
   - name: Show Errata Counts
     debug:
       msg: >
-        Bug fixes: {{ foreman.content_facet_attributes.errata_counts.bugfix }},
-        Security: {{ foreman.content_facet_attributes.errata_counts.security }},
-        Enhancement: {{ foreman.content_facet_attributes.errata_counts.enhancement }},
-        Total: {{ foreman.content_facet_attributes.errata_counts.total }}
+        Bug fixes: {{ hostvars[item].content_facet_attributes.errata_counts.bugfix }},
+        Security: {{ hostvars[item].content_facet_attributes.errata_counts.security }},
+        Enhancement: {{ hostvars[item].content_facet_attributes.errata_counts.enhancement }},
+        Total: {{ hostvars[item].content_facet_attributes.errata_counts.total }}
+
+# ---
+# - name: Extract Lifecycle Environment from All Satellite Hosts
+#   hosts: all  # Target all hosts
+#   gather_facts: no
+
+#   tasks:
+#     - name: Get hostvars for each host
+#       debug:
+#         var: hostvars[item].lifecycle_environment
+#       loop: "{{ groups['all'] }}"

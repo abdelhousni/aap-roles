@@ -2,8 +2,10 @@
 - name: Extract Lifecycle Environment from All Satellite Hosts
   hosts: all  # Target all hosts
   gather_facts: no
+  vars:
+    my_env: foreman_content_facet_attributes.content_view_environments | map(attribute='lifecycle_environment') | map(attribute='name') 
   tasks:
     - name: Get hostvars for each host
       debug:
-        var: foreman_content_facet_attributes.content_view_environments | map(attribute='lifecycle_environment') | map(attribute='name') 
+        var: my_env
       loop: "{{ groups['all'] }}"

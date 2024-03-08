@@ -7,5 +7,5 @@
       debug:
         var: 
         - foreman_content_facet_attributes.content_view_environments:
-          lifecycle_environment
+          - lifecycle_environment
       loop: "{{ groups['all'] }}"

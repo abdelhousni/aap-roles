@@ -7,5 +7,5 @@
   tasks:
     - name: Get hostvars for each host
       debug:
-        my_env
+        var: my_env
       loop: "{{ groups['all'] }}"

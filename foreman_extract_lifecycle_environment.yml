@@ -6,6 +6,6 @@
     - name: Get hostvars for each host
       debug:
         var: 
-        - foreman_content_facet_attributes.content_view_environments:
+        - foreman_content_facet_attributes.content_view_environments
           - lifecycle_environment
       loop: "{{ groups['all'] }}"
